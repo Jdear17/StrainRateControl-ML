@@ -42,10 +42,6 @@ or open `Model_Training.ipynb` to train the LSTM network.
 #### Evaluate the model:  
 python evaluate_model.py
 
-markdown
-Copy
-Edit
-or use the notebook to generate plots and error metrics.  
 
 ### 5. Examine results  
 Output figures and metrics will be generated, demonstrating the strain rate control performance.  
@@ -69,9 +65,6 @@ If you use the code, data, or findings from this repository in your research or 
 ### BibTeX format:  
 @article{Dear2025_strainrate_ML, author = {James Dear and Ruiqiang Zhang and Zhusheng Shi and Jianguo Lin}, title = {A Novel Data-Driven Machine Learning Approach for Improved Strain Rate Control in Thermomechanical Testing of Sheet Metals}, year = {2025}, note = {Under review. Available at GitHub Repository} }
 
-markdown
-Copy
-Edit
 📌 *Citing this work acknowledges the authors’ efforts and supports future development.*  
 
 ## License
@@ -81,5 +74,5 @@ Edit
 This work was supported by the **Engineering and Physical Sciences Research Council (EPSRC)** under Grant **EP/R001715/1** as part of the **LightForm** project.  
 
 ## Contact
-📧 Ruiqiang Zhang - **r.zhang17@imperial.ac.uk**  
+📧 James Dear - **james.dear17@imperial.ac.uk**  
 📍 Department of Mechanical Engineering, Imperial College London, UK  
