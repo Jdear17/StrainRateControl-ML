@@ -6,12 +6,13 @@ from sklearn.pipeline import Pipeline
 from sklearn.ensemble import RandomForestRegressor
 import numpy as np
 import matplotlib.pyplot as plt
+import scipy.signal
+import os
 
 
 
-
-def process_strain_field(file_path, rolling_window, endpoint,max_centre_strain):
-    df = pd.read_excel(file_path, index_col=0, engine='openpyxl')
+def process_strain_field(file_path, rolling_window, endpoint,max_centre_strain,plot=False):
+    df = pd.read_excel(file_path, index_col=0)
     
     # Replace placeholder with NaNs (GOM uses ??? instead of nan)
     df = df.replace('???', np.nan)
@@ -53,22 +54,23 @@ def process_strain_field(file_path, rolling_window, endpoint,max_centre_strain):
 
 
     # Plot strain values at the specified column and entire strain field at center strain ~ 1
-    fig, axs = plt.subplots(1, 2, figsize=(14, 5))
+    if plot:
+        fig, axs = plt.subplots(1, 2, figsize=(14, 5))
 
-    axs[0].plot(df[0])
-    axs[0].set_xlabel('Row Index')
-    axs[0].set_ylabel('Strain')
-    axs[0].set_title(f'Strain values at column x=0')
-    axs[0].grid(True)
+        axs[0].plot(df[0])
+        axs[0].set_xlabel('Row Index')
+        axs[0].set_ylabel('Strain')
+        axs[0].set_title('Strain values at column x=0')
+        axs[0].grid(True)
 
-    axs[1].plot(df.columns, df.iloc[-1])
-    axs[1].set_xlabel('Column Index')
-    axs[1].set_ylabel('Strain')
-    axs[1].set_title(f'Strain field at center strain ≈ {max_centre_strain}')
-    axs[1].grid(True)
+        axs[1].plot(df.columns, df.iloc[-1])
+        axs[1].set_xlabel('Column Index')
+        axs[1].set_ylabel('Strain')
+        axs[1].set_title(f'Strain field at center strain ≈ {max_centre_strain}')
+        axs[1].grid(True)
 
-    plt.tight_layout()
-    plt.show()
+        plt.tight_layout()
+        plt.show()
 
     return df
 
@@ -80,7 +82,7 @@ def sym_dis(df):
     DS = np.log((np.exp(df) + np.exp(df_)) * 0.5)
     return DS
 
-def df_to_X_y(df, temp,rol, window_size):
+def df_to_X_y(df, temp,SR, window_size):
     T_low=300
     T_high=530
     df = df.copy()  # make a copy so the original is unchanged
@@ -90,11 +92,11 @@ def df_to_X_y(df, temp,rol, window_size):
     dt=df.index[1]-df.index[0]
     # Compute strain rate using a Savitzky-Golay filter on a smoothed rolling mean
     rolling_window_size = int(len(df) / 20)
-    savgol_window_size = int(len(df) / 15)
+    savgol_window_size = int(len(df) / 15) | 1
     smoothed_strain = df[0].rolling(window=rolling_window_size, min_periods=0).mean()
     dydx = scipy.signal.savgol_filter(smoothed_strain.values / dt,
                                       window_length=savgol_window_size, polyorder=1, deriv=1)
-    df['SR'] = np.minimum(dydx,rol*2) / 20
+    df['SR'] = np.minimum(dydx,SR*2) / 20
 
     # Prepare input features
 
@@ -111,3 +113,26 @@ def df_to_X_y(df, temp,rol, window_size):
         y.append(label)
 
     return np.array(X), np.array(y)
+
+# src/preprocessing.py
+def prepare_dataset(files, rolling, window_size, train_indices):
+    X_all, y_all = [], []
+    data_dir = 'data/raw'
+    for file in files:
+        temp_str, sr_str = file.replace('.xlsx', '').split('-')
+        temp = int(temp_str)
+        SR = float(sr_str) / 10
+        path = os.path.join(data_dir, file)
+        df = process_strain_field(path, rolling_window=rolling, endpoint=25, max_centre_strain=1)
+        df = sym_dis(df)
+        X, y = df_to_X_y(df, temp, SR, window_size)
+        X_all.append(X)
+        y_all.append(y)
+
+    X_train = np.concatenate([X_all[i] for i in train_indices], axis=0)
+    y_train = np.concatenate([y_all[i] for i in train_indices], axis=0)
+    val_indices = [i for i in range(len(files)) if i not in train_indices]
+    X_val = np.concatenate([X_all[i] for i in val_indices], axis=0)
+    y_val = np.concatenate([y_all[i] for i in val_indices], axis=0)
+
+    return X_train, y_train, X_val, y_val
