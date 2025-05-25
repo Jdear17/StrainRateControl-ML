@@ -74,22 +74,14 @@ All model hyperparameters and training settings are defined in `train.py`.
 
 If you use this repository in your work, please cite:
 
+---
+
+
 **James Dear, Ruiqiang Zhang, Zhusheng Shi, and Jianguo Lin (2025).**
 *A Novel Data-Driven Machine Learning Approach for Improved Strain Rate Control in Thermomechanical Testing of Sheet Metals.*
 
-## 📚 Citation
+---
 
-If you use this repository in your work, please cite:
-
-**James Dear, Ruiqiang Zhang, Zhusheng Shi, and Jianguo Lin (2025).**  
-*A Novel Data-Driven Machine Learning Approach for Improved Strain Rate Control in Thermomechanical Testing of Sheet Metals.*
-
-## 📚 Citation
-
-If you use this repository in your work, please cite:
-
-**James Dear, Ruiqiang Zhang, Zhusheng Shi, and Jianguo Lin (2025).**  
-*A Novel Data-Driven Machine Learning Approach for Improved Strain Rate Control in Thermomechanical Testing of Sheet Metals.*
 
 ### BibTeX
 
@@ -106,7 +98,7 @@ If you use this repository in your work, please cite:
   url       = {https://www.sciencedirect.com/science/article/pii/S0952197625007468},
   keywords  = {Uniaxial tensile test, Sheet metal, Strain rate control, Hot stamping, Thermomechanical behaviour, Long short-term memory},
   abstract  = {Thermomechanical tests on sheet metals are commonly conducted using Gleeble systems to investigate their viscoplastic behaviour. Accurate strain rate control is crucial in these tests to accurately determine the material's thermomechanical properties...}
-}
+---
 
 
 ## 🧱 Contributing
