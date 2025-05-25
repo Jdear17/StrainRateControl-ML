@@ -81,20 +81,19 @@ If you use this repository in your work, please cite:
 
 ```bibtex
 @article{DEAR2025110746,
-  title = {A novel data-driven machine learning approach for improved strain rate control in thermomechanical testing of sheet metals},
-  journal = {Engineering Applications of Artificial Intelligence},
-  volume = {151},
-  pages = {110746},
-  year = {2025},
-  issn = {0952-1976},
-  doi = {https://doi.org/10.1016/j.engappai.2025.110746},
-  url = {https://www.sciencedirect.com/science/article/pii/S0952197625007468},
-  author = {James Dear and Ruiqiang Zhang and Zhusheng Shi and Jianguo Lin},
-  keywords = {Uniaxial tensile test, Sheet metal, Strain rate control, Hot stamping, Thermomechanical behaviour, Long short-term memory},
-  abstract = {Thermomechanical tests on sheet metals are commonly conducted using Gleeble systems to investigate their viscoplastic behaviour. Accurate strain rate control is crucial in these tests to accurately determine the material's thermomechanical properties. However, the well-known temperature gradient along the gauge length makes accurate strain rate control using the conventional approach challenging. In this study, to improve strain rate control in thermomechanical testing, a novel data-driven Machine Learning (ML) approach has been developed, for the first time, based on the analysis of the characteristics of the experimental data obtained using the conventional approach. This novel approach utilises Long Short-Term Memory (LSTM) networks, with inputs of target deformation temperature and strain rate, and outputs of strain distributions along the gauge length throughout the deformation process. The output strain distributions are subsequently integrated to calculate the time-dependent displacement required to stretch the specimen under the target conditions. Uniaxial tensile tests on an aluminium alloy under hot stamping conditions were conducted using both conventional and novel approaches for strain rate control. The experimental data obtained using the conventional approach were adopted to train and test the novel approach. The results show that this novel approach can significantly improve strain rate control in thermomechanical tests. Compared to the conventional approach which results in a Percentage Error (PE) in strain rate of up to ∼770% and a Mean Absolute Percentage Error (MAPE) in strain rate of up to ∼120%, the novel approach significantly reduces both PE and MAPE values by over 88%. This novel ML approach provides an effective solution for controlling strain rate in thermomechanical testing, enabling accurate determination of thermomechanical properties of sheet metals.}
-
+  title     = {A novel data-driven machine learning approach for improved strain rate control in thermomechanical testing of sheet metals},
+  author    = {James Dear and Ruiqiang Zhang and Zhusheng Shi and Jianguo Lin},
+  journal   = {Engineering Applications of Artificial Intelligence},
+  volume    = {151},
+  pages     = {110746},
+  year      = {2025},
+  issn      = {0952-1976},
+  doi       = {10.1016/j.engappai.2025.110746},
+  url       = {https://www.sciencedirect.com/science/article/pii/S0952197625007468},
+  keywords  = {Uniaxial tensile test, Sheet metal, Strain rate control, Hot stamping, Thermomechanical behaviour, Long short-term memory},
+  abstract  = {Thermomechanical tests on sheet metals are commonly conducted using Gleeble systems to investigate their viscoplastic behaviour. Accurate strain rate control is crucial in these tests to accurately determine the material's thermomechanical properties. However, the well-known temperature gradient along the gauge length makes accurate strain rate control using the conventional approach challenging. In this study, to improve strain rate control in thermomechanical testing, a novel data-driven Machine Learning (ML) approach has been developed, for the first time, based on the analysis of the characteristics of the experimental data obtained using the conventional approach. This novel approach utilises Long Short-Term Memory (LSTM) networks, with inputs of target deformation temperature and strain rate, and outputs of strain distributions along the gauge length throughout the deformation process. The output strain distributions are subsequently integrated to calculate the time-dependent displacement required to stretch the specimen under the target conditions. Uniaxial tensile tests on an aluminium alloy under hot stamping conditions were conducted using both conventional and novel approaches for strain rate control. The experimental data obtained using the conventional approach were adopted to train and test the novel approach. The results show that this novel approach can significantly improve strain rate control in thermomechanical tests. Compared to the conventional approach which results in a Percentage Error (PE) in strain rate of up to ∼770% and a Mean Absolute Percentage Error (MAPE) in strain rate of up to ∼120%, the novel approach significantly reduces both PE and MAPE values by over 88%. This novel ML approach provides an effective solution for controlling strain rate in thermomechanical testing, enabling accurate determination of thermomechanical properties of sheet metals.}
 }
-```
+
 
 ---
 
