@@ -76,3 +76,43 @@ def process_strain_field(file_path, rolling_window, endpoint,max_centre_strain):
     plt.show()
 
     return df
+
+def sym_dis(df):
+
+    df_ = df.copy()
+    df_.columns = np.arange(25, -25.5, -0.5)
+    df_ = df_[np.arange(-25, 25.5, 0.5)]
+    DS = np.log((np.exp(df) + np.exp(df_)) * 0.5)
+    return DS
+
+def df_to_X_y(df, temp,rol, window_size):
+    T_low=300
+    T_high=530
+    df = df.copy()  # make a copy so the original is unchanged
+    # Normalize the temperature
+    df_as_np = df.to_numpy()
+    df['temp'] = (temp - T_low) / (T_high - T_low)
+    dt=df.index[1]-df.index[0]
+    # Compute strain rate using a Savitzky-Golay filter on a smoothed rolling mean
+    rolling_window_size = int(len(df) / 20)
+    savgol_window_size = int(len(df) / 15)
+    smoothed_strain = df[0].rolling(window=rolling_window_size, min_periods=0).mean()
+    dydx = scipy.signal.savgol_filter(smoothed_strain.values / dt,
+                                      window_length=savgol_window_size, polyorder=1, deriv=1)
+    df['SR'] = np.minimum(dydx,rol*2) / 20
+
+    # Prepare input features
+
+    df_as_np_X = df[[0, 'temp', 'SR']].to_numpy()
+    df = df.drop('temp', axis=1)
+    df = df.drop('SR', axis=1)
+    # Prepare sequences and labels
+    X, y = [], []
+    for i in range(len(df_as_np_X) - window_size+1):
+        row = df_as_np_X[i:i + window_size]
+        # If window size is 1, remove the unnecessary time dimension
+        X.append(row)
+        label = df_as_np[i + window_size-1]  # Assuming the label is the strain at the next time step
+        y.append(label)
+
+    return np.array(X), np.array(y)
