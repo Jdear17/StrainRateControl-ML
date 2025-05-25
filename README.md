@@ -77,6 +77,20 @@ If you use this repository in your work, please cite:
 **James Dear, Ruiqiang Zhang, Zhusheng Shi, and Jianguo Lin (2025).**
 *A Novel Data-Driven Machine Learning Approach for Improved Strain Rate Control in Thermomechanical Testing of Sheet Metals.*
 
+## 📚 Citation
+
+If you use this repository in your work, please cite:
+
+**James Dear, Ruiqiang Zhang, Zhusheng Shi, and Jianguo Lin (2025).**  
+*A Novel Data-Driven Machine Learning Approach for Improved Strain Rate Control in Thermomechanical Testing of Sheet Metals.*
+
+## 📚 Citation
+
+If you use this repository in your work, please cite:
+
+**James Dear, Ruiqiang Zhang, Zhusheng Shi, and Jianguo Lin (2025).**  
+*A Novel Data-Driven Machine Learning Approach for Improved Strain Rate Control in Thermomechanical Testing of Sheet Metals.*
+
 ### BibTeX
 
 ```bibtex
@@ -94,8 +108,6 @@ If you use this repository in your work, please cite:
   abstract  = {Thermomechanical tests on sheet metals are commonly conducted using Gleeble systems to investigate their viscoplastic behaviour. Accurate strain rate control is crucial in these tests to accurately determine the material's thermomechanical properties...}
 }
 
-
----
 
 ## 🧱 Contributing
 
