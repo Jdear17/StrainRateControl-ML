@@ -1,78 +1,117 @@
 # A Novel Data-Driven Machine Learning Approach for Improved Strain Rate Control in Thermomechanical Testing of Sheet Metals
 
-## Contents
-- 📄 **Manuscript (PDF)** – The full research paper titled *"A Novel Data-Driven Machine Learning Approach for Improved Strain Rate Control in Thermomechanical Testing of Sheet Metals"*, including background, methodology, results, and discussions.  
-- 📊 **Supplementary Data** – Experimental datasets and additional figures or tables supporting the findings (e.g., strain distributions, temperature profiles, etc.).  
-- 🔢 **Code** – Source code for the ML approach and analysis:  
-  - **Data Preprocessing** scripts to format and normalize experimental data.  
-  - **Model Training** code (LSTM network implementation) to learn the relationship between target conditions and required displacement.  
-  - **Evaluation** scripts/notebooks to reproduce the results and generate comparison plots of strain rate error for conventional vs. ML approach.  
-- 📚 **Instructions/Documentation** – Any additional notes or files (e.g., `requirements.txt` for dependencies) to help reproduce the experiments and results.  
+This repository contains the code, data, and documentation for the paper:
 
-## Usage Instructions
-To get started with the materials in this repository, follow these steps:  
+📄 **[A Novel Data-Driven Machine Learning Approach for Improved Strain Rate Control in Thermomechanical Testing of Sheet Metals](insert-paper-link-here)**
+by James Dear, Ruiqiang Zhang, Zhusheng Shi, and Jianguo Lin, 2025.
 
-### 1. Clone the repository  
-git clone <repo_url> cd <repo_name>
+---
 
-csharp
-Copy
-Edit
+## 📦 Contents
 
-### 2. Setup environment  
-Ensure you have Python 3.x installed. Install the required libraries by running:  
+* **Manuscript** – Full PDF of the research paper \[link above].
+* **Experimental Data** – Raw and processed datasets under `data/`, including strain field evolution and temperature profiles.
+* **Source Code**
+
+  * `src/data_processing.py`: preprocessing and feature generation
+  * `src/model.py`: LSTM model definition
+  * `train.py`: training script
+* **Notebooks** – Interactive exploration and visualisation (in `notebooks/`).
+* **Documentation** – `requirements.txt`, usage instructions, and citation info.
+
+---
+
+## 🚀 Quickstart
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Jdear17/StrainRateControl-ML.git
+cd StrainRateControl-ML
+```
+
+### 2. Install dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
-python
-Copy
-Edit
+> ✅ Python 3.8+ and TensorFlow 2.x recommended.
 
-### 3. Prepare data  
-The experimental dataset is provided in the `data/` directory (e.g., as CSV or MAT files). Ensure the file paths in the code point to the correct location of these data files.  
+### 3. Prepare the data
 
-### 4. Run the code  
-#### Train the model:  
-python train_model.py
+Ensure the raw `.xlsx` files are in `data/raw/`. These contain experimental strain field measurements for different temperature and strain rate conditions.
 
-perl
-Copy
-Edit
-or open `Model_Training.ipynb` to train the LSTM network.  
+### 4. Train the model
 
-#### Evaluate the model:  
-python evaluate_model.py
+To train the LSTM model using the default setup:
 
+```bash
+python train.py
+```
 
-### 5. Examine results  
-Output figures and metrics will be generated, demonstrating the strain rate control performance.  
+Or use the notebook version:
 
-🔹 *Note:* If using a **GPU**, ensure the appropriate deep learning framework (e.g., TensorFlow or PyTorch with GPU support) is installed.  
+```bash
+notebooks/analysis.ipynb
+```
 
-## Contribution Guidelines
-We welcome contributions, suggestions, and feedback from the community to improve this work:  
-- **📝 Feedback and Issues**: If you encounter problems, have suggestions for improvements, or need clarification, please open an **issue** in this repository.  
-- **🛠️ Contributing Code or Data**: Fork the repository and submit a pull request for any enhancements. Please include a clear description of changes and ensure your code is well-documented.  
-- **💬 Discussion**: For general discussions or brainstorming new ideas related to this approach, you can start a discussion thread in the repository.  
+### 5. Evaluate performance
 
-By contributing, you agree to follow the repository’s **code of conduct** and best practices.  
+Output metrics and plots will be generated showing predicted vs. experimental strain fields and strain rate control error.
 
-## Citation
-If you use the code, data, or findings from this repository in your research or engineering work, please cite the manuscript as follows:  
+---
 
-**James Dear, Ruiqiang Zhang, Zhusheng Shi, and Jianguo Lin (2025).**  
-*A Novel Data-Driven Machine Learning Approach for Improved Strain Rate Control in Thermomechanical Testing of Sheet Metals.*  
+## 📈 Reproducing Results
 
-### BibTeX format:  
-@article{Dear2025_strainrate_ML, author = {James Dear and Ruiqiang Zhang and Zhusheng Shi and Jianguo Lin}, title = {A Novel Data-Driven Machine Learning Approach for Improved Strain Rate Control in Thermomechanical Testing of Sheet Metals}, year = {2025}, note = {Under review. Available at GitHub Repository} }
+The training/validation split follows the paper’s experimental protocol. Strain centre, temperature, and estimated strain rate are used as input features, and the output is the full strain field in the x-direction.
 
-📌 *Citing this work acknowledges the authors’ efforts and supports future development.*  
+All model hyperparameters and training settings are defined in `train.py`.
 
-## License
-🔖 This repository is licensed under the **MIT License**. See `LICENSE` for details.  
+---
 
-## Acknowledgments
-This work was supported by the **Engineering and Physical Sciences Research Council (EPSRC)** under Grant **EP/R001715/1** as part of the **LightForm** project.  
+## 📚 Citation
 
-## Contact
-📧 James Dear - **james.dear17@imperial.ac.uk**  
-📍 Department of Mechanical Engineering, Imperial College London, UK  
+If you use this repository in your work, please cite:
+
+**James Dear, Ruiqiang Zhang, Zhusheng Shi, and Jianguo Lin (2025).**
+*A Novel Data-Driven Machine Learning Approach for Improved Strain Rate Control in Thermomechanical Testing of Sheet Metals.*
+
+### BibTeX
+
+```bibtex
+@article{Dear2025_strainrate_ML,
+  author = {James Dear and Ruiqiang Zhang and Zhusheng Shi and Jianguo Lin},
+  title = {A Novel Data-Driven Machine Learning Approach for Improved Strain Rate Control in Thermomechanical Testing of Sheet Metals},
+  year = {2025},
+  note = {Under review. Available at GitHub Repository}
+}
+```
+
+---
+
+## 🧱 Contributing
+
+* 🐛 Found a bug? Open an [issue](https://github.com/Jdear17/StrainRateControl-ML/issues).
+* 💡 Have an idea or improvement? Submit a pull request.
+* 🙏 By contributing, you agree to follow the repository’s code of conduct.
+
+---
+
+## 📄 License
+
+MIT License — see `LICENSE` for details.
+
+---
+
+## 🧠 Acknowledgements
+
+This research was supported by the **Engineering and Physical Sciences Research Council (EPSRC)**, Grant **EP/R001715/1**, under the **LightForm** project.
+
+---
+
+## 📬 Contact
+
+**James Dear**
+📧 [james.dear17@imperial.ac.uk](mailto:james.dear17@imperial.ac.uk)
+📍 Department of Mechanical Engineering, Imperial College London, UK
