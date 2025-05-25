@@ -1,2 +1,0 @@
-This is a placeholder text file for the StrainRateControl-ML project.
-You can use this file to document notes, ideas, or any relevant information.
