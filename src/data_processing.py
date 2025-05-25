@@ -7,16 +7,11 @@ from sklearn.ensemble import RandomForestRegressor
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Load dataset
-def load_data(file_path):
-    """
-    Load dataset from a CSV file.
-    """
-    return pd.read_csv(file_path)
+
 
 
 def process_strain_field(file_path, rolling_window, endpoint,max_centre_strain):
-    df = pd.read_excel(file_path, index_col=0)
+    df = pd.read_excel(file_path, index_col=0, engine='openpyxl')
     
     # Replace placeholder with NaNs (GOM uses ??? instead of nan)
     df = df.replace('???', np.nan)
