@@ -2,7 +2,7 @@
 
 This repository contains the code, data, and documentation for the paper:
 
-📄 **[A Novel Data-Driven Machine Learning Approach for Improved Strain Rate Control in Thermomechanical Testing of Sheet Metals](insert-paper-link-here)**
+📄 **[A Novel Data-Driven Machine Learning Approach for Improved Strain Rate Control in Thermomechanical Testing of Sheet Metals](https://doi.org/10.1016/j.engappai.2025.110746)**
 by James Dear, Ruiqiang Zhang, Zhusheng Shi, and Jianguo Lin, 2025.
 
 ---
