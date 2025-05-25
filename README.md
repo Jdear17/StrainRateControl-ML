@@ -83,6 +83,7 @@ If you use this repository in your work, please cite:
 ---
 
 
+
 ### BibTeX
 
 ```bibtex
@@ -98,6 +99,19 @@ If you use this repository in your work, please cite:
   url       = {https://www.sciencedirect.com/science/article/pii/S0952197625007468},
   keywords  = {Uniaxial tensile test, Sheet metal, Strain rate control, Hot stamping, Thermomechanical behaviour, Long short-term memory},
   abstract  = {Thermomechanical tests on sheet metals are commonly conducted using Gleeble systems to investigate their viscoplastic behaviour. Accurate strain rate control is crucial in these tests to accurately determine the material's thermomechanical properties...}
+}
+```
+
+## License
+
+🔖 This repository is licensed under the **MIT License**. See `LICENSE` for details.  
+
+## Acknowledgments
+This work was supported by the **Engineering and Physical Sciences Research Council (EPSRC)** under Grant **EP/R001715/1** as part of the **LightForm** project.  
+
+## Contact
+📧 James Dear - **james.dear17@imperial.ac.uk**  
+📍 Department of Mechanical Engineering, Imperial College London, UK  
 ---
 
 
